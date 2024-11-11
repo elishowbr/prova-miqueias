@@ -1,11 +1,9 @@
-let a = "João";
-let b = "Ana";
-let c = "Carlos";
+const pessoas = ["João", "Ana", "Carlos"];
 
-function p() {
-    console.log(a);
-    console.log(b);
-    console.log(c);
+function verUsuarios() {
+    for (const pessoa of pessoas) {
+        console.log(pessoa);
+    }
 }
 
-p();
+verUsuarios();

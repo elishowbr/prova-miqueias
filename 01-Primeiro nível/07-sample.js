@@ -1,8 +1,11 @@
-let strN = "Carlos";
-let intI= 32;
+const nomeString = "Carlos";
+const idadeInt = 32;
 
-function info(strN, intI) {
-    console.log(strN + " tem " + intI + " anos.");
+function displayInfo(nome = String, idade = parseInt) {
+    console.log(`${nome} tem ${idade} anos.`);
 }
 
-info(strN, intI);
+displayInfo(nomeString, idadeInt);
+
+// Nesse exemplo, o professor utilizou sufixos para as variáveis.
+// Para respeitar a formatação do professor, mantive dessa maneira (embora saiba que não seja estritamente necessário.)

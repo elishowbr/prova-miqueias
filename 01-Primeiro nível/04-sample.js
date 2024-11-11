@@ -1,6 +1,4 @@
-let fcr = function(a, b) {
-    return a + b;
-}
+const soma = (a, b) => a + b;
 
-let rsl = fcr(3, 5);
-console.log(rsl);
+const resultado = soma(3, 5);
+console.log(resultado);

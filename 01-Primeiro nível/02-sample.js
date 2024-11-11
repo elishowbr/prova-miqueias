@@ -1,12 +1,5 @@
-let a = true;
-
-function verAc(u) {
-    if (a && u.isAdmin) {
-        console.log("Acesso permitido ao administrador.");
-    } else {
-        console.log("Acesso negado.");
-    }
+function verificarAcesso(user) {
+    user.isAdmin ? console.log("Acesso permitido ao administrador") : console.log("Acesso negado.");
 }
-
-let u = { nome: "João", admin: true };
-verAc(u);
+const usuario = { nome: "João", isAdmin: true };
+verificarAcesso(usuario);
