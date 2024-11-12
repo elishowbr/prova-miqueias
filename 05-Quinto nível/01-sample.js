@@ -1,15 +1,15 @@
-function principal() {
-    let itens = [10, 20, 30, 40, 50];
+function main() {
+    const numeros = [10, 20, 30, 40, 50];
     let total = 0;
-    
 
-    let z = 3;
+    const triplicaValor = 3;
     
-    for (let i = 0; i < itens.length; i++) {
-        total += itens[i] * z;
+    for (let i = 0; i < numeros.length; i++) {
+        total += numeros[i] * triplicaValor;
     }
+    console.log("O total é:", total);
 
-    let usuario = obterUsuariobyId(42);
+    const usuario = obterUsuariobyId(42);
 
     if (usuario.ativo) {
         console.log("Usuário está ativo");
@@ -17,7 +17,6 @@ function principal() {
         console.log("Usuário não está ativo");
     }
 
-    console.log("O total é:", total);
     atualizarDados(usuario);
 }
 
@@ -74,51 +73,41 @@ function calcularToString(a, b, c) {
     return stringReversa;
 };
 
-function processarDados(n) {
+function processarDados(number) {
     let resultado = 0;
-    const divisorPar = 0;
+    const divisorPar = 2;
 
-    for (let i = 1; i <= n; i++) {
+    for (let i = 1; i <= number; i++) {
         if (i % divisorPar === 0) {
             resultado += i;
         } else {
             resultado -= i;
         }
     }
-    console.log(`Resultado do processamento: ${resultado}`);
-
-    function exibirDados() {
-        const dados = ["Valor 1", "Valor 2", "Valor 3"];
-        for (let i = 0; i < dados.length; i++) {
-            console.log(`Dados: ${dados[i]}`);
-        }
-    }
-    
-    exibirDados();
-
     return resultado;
 }
 
-function funcao() {
-    let itens = [5, 7, 9, 11];
-    let x = 0;
-    for (let i = 0; i < itens.length; i++) {
-        x += itens[i] * 3;
+function testeLista() {
+    const numeros = [5, 7, 9, 11];
+
+    let numerosTriplicados = 0;
+
+    for (let i = 0; i < numeros.length; i++) {
+        numerosTriplicados += numeros[i] * 3;
     }
 
     function mostrarInfo() {
-        let valores = ["Dado 1", "Dado 2", "Dado 3"];
-        for (let j = 0; j < valores.length; j++) {
-            console.log("Info:", valores[j]);
+        const valores = ["Dado 1", "Dado 2", "Dado 3"];
+        for (const valor of valores) {
+            console.log(valor);
         }
     }
 
     mostrarInfo();
-    console.log("Cálculo total:", x);
-    return x;
+    return numerosTriplicados;
 }
 
-principal();
+main();
 console.log(`String invertida: ${calcularToString(1, 2, 3)}`);
 console.log("Resultado do processamento de dados:", processarDados(10));
-console.log("Resultado da função:", funcao());
+console.log("Resultado da função:", testeLista());
