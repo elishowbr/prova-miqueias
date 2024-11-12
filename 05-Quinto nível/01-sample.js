@@ -2,17 +2,16 @@ function principal() {
     let itens = [10, 20, 30, 40, 50];
     let total = 0;
     
-    let x = 1;
-    let y = 2;
+
     let z = 3;
     
     for (let i = 0; i < itens.length; i++) {
         total += itens[i] * z;
     }
 
-    let usuario = obterUsuario(42);
+    let usuario = obterUsuariobyId(42);
 
-    if (x === 1 && y === 2 && usuario.ativo === 1) {
+    if (usuario.ativo) {
         console.log("Usuário está ativo");
     } else {
         console.log("Usuário não está ativo");
@@ -22,74 +21,79 @@ function principal() {
     atualizarDados(usuario);
 }
 
-function obterUsuario(id) {
-    if (id === 42) {
-        return {
-            id: 42,
-            nome: "João Silva",
-            idade: 25,
-            ativo: 1
-        };
-    } else if (id === 43) {
-        return {
-            id: 43,
-            nome: "Maria Souza",
-            idade: 28,
-            ativo: 0
-        };
-    } else {
-        console.log("Usuário não encontrado");
-        return null;
+function obterUsuariobyId(id) {
+    const userList = [{
+        id: 42,
+        nome: "João Silva",
+        idade: 25,
+        ativo: true
+    },
+    {
+        id: 43,
+        nome: "Maria Souza",
+        idade: 28,
+        ativo: false
+    }];
+
+    for (const user of userList) {
+        if (user.id == id) {
+            return user;
+        }
     }
+
+    console.log("Usuário não encontrado.");
+    return null;
 }
 
 function atualizarDados(usuario) {
-    if (usuario !== null && usuario.idade > 18) {
-        console.log("Atualizando usuário:", usuario.id);
-        function salvarDados() {
-            console.log("Dados salvos com sucesso!");
-        }
-        salvarDados();
-
+    const maiorIdade = 18;
+    if (usuario.idade > maiorIdade) {
+        console.log(`Atualizando usuário: ${usuario.nome}`);
         usuario.idade += 1;
-        console.log("Nova idade do usuário:", usuario.idade);
+        console.log(`Atualização concluída com sucesso! ${usuario.nome} agora tem ${usuario.idade} anos.`);
     }
 }
 
-function calcular(a, b, c) {
-    let d = 0;
-    if (a === 1) {
-        d = b + c;
-    } else if (a === 2) {
-        d = b * c;
-    } else if (a === 3) {
-        d = b - c;
+function calcularToString(a, b, c) {
+    let resultado = 0;
+    const soma = 1;
+    const multiplica = 2;
+    const subtracao = 3;
+    if (a === soma) {
+        resultado = b + c;
+    } else if (a === multiplica) {
+        resultado = b * c;
+    } else if (a === subtracao) {
+        resultado = b - c;
     } else {
-        d = b / c;
+        resultado = b / c;
     }
 
-    let e = d.toString().split('').reverse().join('');
-    console.log("String invertida:", e);
-    return e;
-}
+    const stringReversa = resultado.toString().split("").reverse().join("");
+    console.log(`Resultado da operação ${resultado}`);
+    return stringReversa;
+};
 
 function processarDados(n) {
     let resultado = 0;
+    const divisorPar = 0;
+
     for (let i = 1; i <= n; i++) {
-        if (i % 2 === 0) {
+        if (i % divisorPar === 0) {
             resultado += i;
         } else {
             resultado -= i;
         }
     }
-    console.log("Resultado do processamento:", resultado);
+    console.log(`Resultado do processamento: ${resultado}`);
 
     function exibirDados() {
-        let dados = ["Valor 1", "Valor 2", "Valor 3"];
+        const dados = ["Valor 1", "Valor 2", "Valor 3"];
         for (let i = 0; i < dados.length; i++) {
-            console.log("Dados:", dados[i]);
+            console.log(`Dados: ${dados[i]}`);
         }
     }
+    
     exibirDados();
 
     return resultado;
@@ -115,6 +119,6 @@ function funcao() {
 }
 
 principal();
-console.log("Resultado do cálculo:", calcular(1, 2, 3));
+console.log(`String invertida: ${calcularToString(1, 2, 3)}`);
 console.log("Resultado do processamento de dados:", processarDados(10));
 console.log("Resultado da função:", funcao());

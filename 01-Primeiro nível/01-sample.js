@@ -1,7 +1,8 @@
 function listarPares(arr) {
     const listaPares = [];
+    const divisorPar = 2;
     for (let i = 0; i < arr.length; i++) {
-        if (arr[i] % 2 === 0) {
+        if (arr[i] % divisorPar === 0) {
             listaPares.push(arr[i]);
         }
     }
