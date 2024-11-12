@@ -6,3 +6,4 @@ async function buscarNave(id) {
 }
 
 buscarNave(10);
+
