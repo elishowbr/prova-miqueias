@@ -6,3 +6,4 @@ async function buscarPersonagem() {
 }
 
 buscarPersonagem();
+
